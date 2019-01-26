@@ -10,8 +10,6 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-
 import com.mysql.jdbc.StringUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.sust.appinfo.pojo.*;

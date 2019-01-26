@@ -37,6 +37,7 @@
       <a href="dev/login" class="btn btn-link"><img style="width: 200px"  alt="开发者平台 入口" src="${pageContext.request.contextPath }/statics/images/dev.png"></a>
       <%--<a href="dev/login" class="btn btn-link">开发者平台 入口</a>--%>
       </div>
+      <p style="margin-left: 80px">没有账号？<a href="/register/">立即注册</a></p>
     </div>
   </body>
 </html>
