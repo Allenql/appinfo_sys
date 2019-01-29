@@ -16,7 +16,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
          * 拦截器按照顺序执行
          * 不止One，还有Two，Three
          */
-        registry.addInterceptor(new SysInterceptor()).addPathPatterns("/**").excludePathPatterns("/").excludePathPatterns("/dev/*").
+        registry.addInterceptor(new SysInterceptor()).addPathPatterns("/**").excludePathPatterns("/").excludePathPatterns("/dev/*").excludePathPatterns("/dev/register/**").excludePathPatterns("/user/register/**").
                 excludePathPatterns("/manager/*").excludePathPatterns("/statics/**").excludePathPatterns("/register/**");
 
         super.addInterceptors(registry);

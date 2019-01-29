@@ -12,4 +12,17 @@ public interface BackendUserMapper {
 	 */
 	public BackendUser getLoginUser(@Param("userCode") String userCode)throws Exception;
 
+	/**
+	 * 验证userCode是否存在
+	 * @param userCode
+	 * @return
+	 */
+	public int checkUserCode(String userCode);
+
+	/**
+	 * User注册
+	 * @param backendUser
+	 * @return
+	 */
+	public int addBackendUser(BackendUser backendUser);
 }

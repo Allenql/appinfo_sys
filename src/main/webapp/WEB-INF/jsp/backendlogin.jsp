@@ -35,6 +35,7 @@
             <form action="dologin" method="post">
               <h1>后台管理系统</h1>
               <div>
+                <span style="color: lawngreen;">${msg}</span>
                 <input type="text" class="form-control" name="userCode" placeholder="请输入用户名" required="" />
               </div>
               <div>
