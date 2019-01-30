@@ -74,7 +74,7 @@
                   </li>
                   <li><a><i class="fa fa-bug"></i> 基础数据维护 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="javascript:;">数据字典</a></li>
+                        <li><a href="${pageContext.request.contextPath }/manager/backend/datadic/list">数据字典</a></li>
                       <li><a href="javascript:;">APP分类管理</a></li>
                     </ul>
                   </li>

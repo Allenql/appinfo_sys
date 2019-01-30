@@ -25,8 +25,7 @@ public class AppServiceImpl implements AppService {
 									Integer queryCategoryLevel2, Integer queryCategoryLevel3,
 									Integer queryFlatformId,Integer currentPageNo,
 									Integer pageSize) throws Exception {
-		// TODO Auto-generated method stub
-		return mapper.getAppInfoList(querySoftwareName, 1, queryCategoryLevel1, queryCategoryLevel2, 
+		return mapper.getAppInfoList(querySoftwareName, 1, queryCategoryLevel1, queryCategoryLevel2,
 				                 queryCategoryLevel3, queryFlatformId, null, (currentPageNo-1)*pageSize, pageSize);
 	}
 
@@ -37,8 +36,7 @@ public class AppServiceImpl implements AppService {
 							Integer queryCategoryLevel3, 
 							Integer queryFlatformId)
 							throws Exception {
-		// TODO Auto-generated method stub
-		return mapper.getAppInfoCount(querySoftwareName, 1, queryCategoryLevel1, queryCategoryLevel2, 
+		return mapper.getAppInfoCount(querySoftwareName, 1, queryCategoryLevel1, queryCategoryLevel2,
 									queryCategoryLevel3, queryFlatformId, null);
 	}
 

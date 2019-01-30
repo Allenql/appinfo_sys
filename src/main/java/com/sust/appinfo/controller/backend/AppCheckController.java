@@ -70,7 +70,6 @@ public class AppCheckController {
 			try{
 				currentPageNo = Integer.valueOf(pageIndex);
 			}catch (NumberFormatException e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -117,7 +116,6 @@ public class AppCheckController {
 			flatFormList = this.getDataDictionaryList("APP_FLATFORM");
 			categoryLevel1List = appCategoryService.getAppCategoryListByParentId(null);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model.addAttribute("appInfoList", appInfoList);

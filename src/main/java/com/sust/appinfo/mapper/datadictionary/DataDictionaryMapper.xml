@@ -13,5 +13,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</trim>
 		<!-- order by creationDate DESC  -->
 	</select>
-	
+
+	<select id="getDataDictionaryLists" resultType="DataDictionary">
+		select * from data_dictionary
+		<trim prefix="where" prefixOverrides="and | or">
+			<if test="queryValueName != null and queryValueName != ''">
+				and valueName like CONCAT ('%',#{queryValueName},'%')
+			</if>
+			<if test="queryType != null and queryType != ''">
+				and typeName = #{queryType}
+			</if>
+		</trim>
+		 limit #{currentPageNo},#{pageSize}
+	</select>
+
+	<select id="getDataDicCount" resultType="int">
+		select count(1) from data_dictionary
+		<trim prefix="where" prefixOverrides="and | or">
+			<if test="queryValueName != null and queryValueName != ''">
+				and valueName like CONCAT ('%',#{queryValueName},'%')
+			</if>
+			<if test="queryType != null and queryType != ''">
+				and typeName = #{queryType}
+			</if>
+		</trim>
+	</select>
+
+	<select id="getAllTypeName" resultType="string">
+		SELECT typeName FROM data_dictionary GROUP BY typeName
+	</select>
 </mapper>
