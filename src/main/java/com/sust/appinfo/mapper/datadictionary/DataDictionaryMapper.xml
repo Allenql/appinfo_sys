@@ -42,4 +42,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAllTypeName" resultType="string">
 		SELECT typeName FROM data_dictionary GROUP BY typeName
 	</select>
+
+	<select id="selectMaxValueIdByTypeName" parameterType="string" resultType="int">
+		SELECT MAX(valueId)  FROM data_dictionary WHERE typeName = #{typeName}
+	</select>
+
+	<insert id="addDataDic">
+		INSERT INTO data_dictionary(typeCode,typeName,valueId,valueName,createdBy,creationDate)
+		VALUES(#{typeCode},#{typeName},#{valueId},#{valueName},1,now())
+	</insert>
+
+	<delete id="deleteDataDicById" parameterType="int">
+		delete from data_dictionary where id  = #{id}
+	</delete>
+
+	<update id="doUpdate">
+		update data_dictionary set
+		valueName = #{valueName}, typeName = #{typeName},typeCode = #{typeCode},
+		modifyBy = 1,modifyDate = now(),valueId = #{valueId}
+		where id = #{id}
+	</update>
 </mapper>

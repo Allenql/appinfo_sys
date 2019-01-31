@@ -1,11 +1,16 @@
 package com.sust.appinfo.service.developer;
 
+import java.io.Reader;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import com.sust.appinfo.mapper.datadictionary.DataDictionaryMapper;
 import com.sust.appinfo.pojo.DataDictionary;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.stereotype.Service;
 
 
@@ -35,6 +40,33 @@ public class DataDictionaryServiceImpl implements DataDictionaryService {
 	@Override
 	public List<String> getAllTypeName() throws Exception {
 		return mapper.getAllTypeName();
+	}
+
+	@Override
+	public boolean addDataDic(String typeName, String valueName, int valueId, String typeCode) {
+		if (mapper.addDataDic(typeName,valueName,valueId,typeCode) >= 1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public int selectMaxValueIdByTypeName(String typeName) {
+		return mapper.selectMaxValueIdByTypeName(typeName);
+	}
+
+	@Override
+	public int deleteDataDicById(int id) {
+		return mapper.deleteDataDicById(id);
+	}
+
+	@Override
+	public boolean doUpdate(String valueName, String typeName, int id, int valueId,String typeCode) {
+		int i = mapper.doUpdate(valueName, typeName, id, valueId, typeCode);
+		if(i >= 1){
+			return true;
+		}
+		return false;
 	}
 
 }

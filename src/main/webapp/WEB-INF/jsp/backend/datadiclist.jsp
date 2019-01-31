@@ -1,3 +1,6 @@
+<%@ page import="com.sust.appinfo.service.developer.DataDictionaryService" %>
+<%@ page import="com.sust.appinfo.service.developer.DataDictionaryServiceImpl" %>
+<%@ page import="java.io.PrintWriter" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -10,7 +13,6 @@
 <%@include file="common/header.jsp"%>
 <div class="clearfix"></div>
 <div class="row">
-
     <div class="col-md-12">
         <div class="x_panel">
             <div class="x_title">
@@ -40,7 +42,7 @@
                                     <select name="queryType" class="form-control">
                                         <c:if test="${typeNames != null }">
                                             <option value="">--请选择--</option>
-                                            <c:forEach var="type" items="${typeNames}">
+                                                    <c:forEach var="type" items="${typeNames}">
                                                 <option <c:if test="${type == queryType }">selected="selected"</c:if>
                                                         value="${type}">${type}</option>
                                             </c:forEach>
@@ -63,7 +65,7 @@
                      class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a href="#" class="btn btn-success btn-sm">新增数据字典信息</a>
+                            <a href="add" class="btn btn-success btn-sm">新增数据字典信息</a>
                             <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
                                    cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;">
                                 <thead>
@@ -97,8 +99,8 @@
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
-                                                    <li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="修改数据字典信息">修改</a></li>
-                                                    <li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="删除数据字典信息">删除</a></li>
+                                                    <li><a data-toggle="tooltip" data-placement="top" title="" href="update?valueName=${dataDic.valueName}&typeName=${dataDic.typeName}&id=${dataDic.id}" data-original-title="修改数据字典信息">修改</a></li>
+                                                    <li><a data-toggle="tooltip" id="delete" data-placement="top" title="" href="delete/${dataDic.id}" data-original-title="删除数据字典信息">删除</a></li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -155,19 +157,12 @@
 <%@include file="common/footer.jsp"%>
 <script src="${pageContext.request.contextPath }/statics/localjs/rollpage.js"></script>
 <%--<script src="${pageContext.request.contextPath }/statics/localjs/applist.js"></script>--%>
-<%--<script>--%>
-    <%--$(document).ready(function () {--%>
-        <%--//使用ajax加载数据字典的分类信息--%>
-        <%--$.ajax({--%>
-            <%--url:"/manager/backend/datadic/type",--%>
-            <%--data:"",--%>
-            <%--datatype:"string",--%>
-            <%--success:function (data) {--%>
-                <%--alert("success")--%>
-            <%--},--%>
-            <%--error:function () {--%>
-                <%--alert("error")--%>
-            <%--}--%>
-        <%--})--%>
-    <%--})--%>
-<%--</script>--%>
+<%
+    String msg = request.getParameter("msg");
+    PrintWriter writer = response.getWriter();
+    if(null != msg){
+        writer.print("<script>alert('" + msg + "')</script>");
+    }
+
+%>
+
