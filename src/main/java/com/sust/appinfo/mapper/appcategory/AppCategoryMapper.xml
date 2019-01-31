@@ -15,5 +15,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 	</select>
-	
+
+	<select id="getAppCategoryList" resultType="AppCategory">
+		select * from app_category
+		<trim prefix="where" prefixOverrides="and | or">
+			<if test="queryCategoryName != null and queryCategoryName != ''">
+				and categoryName like CONCAT ('%',#{queryCategoryName},'%')
+			</if>
+		</trim>
+		limit #{currentPageNo},#{pageSize}
+	</select>
+
+	<select id="getAppCategoryCount" resultType="int">
+		select count(1) from app_category
+		<trim prefix="where" prefixOverrides="and | or">
+			<if test="queryCategoryName != null and queryCategoryName != ''">
+				and categoryName like CONCAT ('%',#{queryCategoryName},'%')
+			</if>
+		</trim>
+	</select>
 </mapper>

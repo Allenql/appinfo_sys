@@ -17,8 +17,17 @@ public class AppCategoryServiceImpl implements AppCategoryService {
 	@Override
 	public List<AppCategory> getAppCategoryListByParentId(Integer parentId)
 			throws Exception {
-		// TODO Auto-generated method stub
 		return mapper.getAppCategoryListByParentId(parentId);
+	}
+
+	@Override
+	public List<AppCategory> getAppCategoryList(String queryCategoryName, int currentPageNo, int pageSize) throws Exception {
+		return mapper.getAppCategoryList(queryCategoryName,(currentPageNo - 1) * pageSize, pageSize);
+	}
+
+	@Override
+	public int getAppCategoryCount(String queryCategoryName) {
+		return mapper.getAppCategoryCount(queryCategoryName);
 	}
 
 }
