@@ -34,4 +34,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 	</select>
+
+	<insert id="addAppCategory">
+		insert into app_category(categoryCode, categoryName, createdBy, creationTime, parentId)
+		values(#{categoryCode},#{categoryName},1,now(), #{id})
+	</insert>
+
+	<delete id="deleteAppCategoryById" parameterType="int">
+		delete from app_category where id = #{id}
+	</delete>
 </mapper>

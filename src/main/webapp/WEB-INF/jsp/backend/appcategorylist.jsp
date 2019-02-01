@@ -48,7 +48,7 @@
                      class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a href="add" class="btn btn-success btn-sm">新增APP分类信息</a>
+                            <a href="add" class="btn btn-success btn-sm">新增父级节点信息</a>
                             <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
                                    cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;">
                                 <thead>
@@ -88,8 +88,9 @@
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
-                                                    <li><a data-toggle="tooltip" data-placement="top" title="" href="update?valueName=${dataDic.valueName}&typeName=${dataDic.typeName}&id=${dataDic.id}" data-original-title="修改APP分类信息">修改</a></li>
-                                                    <li><a data-toggle="tooltip" id="delete" data-placement="top" title="" href="delete/${dataDic.id}" data-original-title="删除APP分类信息">删除</a></li>
+                                                    <%--<li><a data-toggle="tooltip" data-placement="top" title="" href="update?valueName=${dataDic.valueName}&typeName=${dataDic.typeName}&id=${dataDic.id}" data-original-title="修改APP分类信息">修改</a></li>--%>
+                                                    <li><a data-toggle="tooltip" id="delete" data-placement="top" title="" href="delete/${appCategory.id}" data-original-title="">删除</a></li>
+                                                    <li><a data-toggle="tooltip" id="add" data-placement="top" title="" href="add/${appCategory.id}" data-original-title="">添加子级节点</a></li>
                                                 </ul>
                                             </div>
                                         </td>

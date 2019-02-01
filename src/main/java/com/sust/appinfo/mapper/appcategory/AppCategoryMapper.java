@@ -13,4 +13,7 @@ public interface AppCategoryMapper {
 
 	public int getAppCategoryCount(@Param("queryCategoryName") String queryCategoryName);
 
-}
+	public int addAppCategory(@Param("categoryCode") String categoryCode, @Param("categoryName") String categoryName, @Param("id") Integer id);
+
+	public int deleteAppCategoryById(int id);
+	}

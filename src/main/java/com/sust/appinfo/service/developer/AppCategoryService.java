@@ -24,4 +24,8 @@ public interface AppCategoryService {
 	public List<AppCategory> getAppCategoryList(String queryCategoryName,int currentPageNo,int pageSize) throws Exception;
 
 	public int getAppCategoryCount(String queryCategoryName);
+
+	public boolean addAppCategory(String categoryCode, String categoryName, Integer id);
+
+	public int deleteAppCategoryById(int id);
 }

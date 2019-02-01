@@ -30,4 +30,17 @@ public class AppCategoryServiceImpl implements AppCategoryService {
 		return mapper.getAppCategoryCount(queryCategoryName);
 	}
 
+	@Override
+	public boolean addAppCategory(String categoryCode, String categoryName, Integer id) {
+		if(mapper.addAppCategory(categoryCode,categoryName, id) >= 1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public int deleteAppCategoryById(int id) {
+		return mapper.deleteAppCategoryById(id);
+	}
+
 }
