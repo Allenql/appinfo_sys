@@ -25,4 +25,13 @@ public interface BackendUserMapper {
 	 * @return
 	 */
 	public int addBackendUser(BackendUser backendUser);
+
+	public int checkPassword(int id, String password);
+
+	public int updatePassword(@Param("id") int id, @Param("newUserPassword") String newUserPassword);
+
+	public int doUpdateUser(@Param("id") int id, @Param("userCode") String userCode, @Param("userName") String userName);
+
+	public BackendUser selectById(int id);
+
 }

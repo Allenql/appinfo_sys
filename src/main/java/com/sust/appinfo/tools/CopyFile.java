@@ -16,7 +16,7 @@ public class CopyFile {
             FileOutputStream fs = null;
             try {
                 inStream = new FileInputStream(targetFile);
-                fs = new FileOutputStream("D:\\毕业设计-app信息管理平台\\appinfo_sys\\src\\main\\resources\\static\\uploadfiles\\" + fileName);
+                fs = new FileOutputStream("D:\\appinfo_git\\src\\main\\resources\\static\\uploadfiles\\" + fileName);
                 byte[] buffer = new byte[1444];
                 int length;
                 while ((byteread = inStream.read(buffer)) != -1) {

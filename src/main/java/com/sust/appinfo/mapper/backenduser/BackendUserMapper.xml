@@ -19,4 +19,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addBackendUser" parameterType="BackendUser">
 		insert into backend_user(userCode,userName,userPassword,creationDate,userType,createdBy) values(#{userCode},#{userName},#{userPassword},now(),1,1)
 	</insert>
+
+	<select id="checkPassword" resultType="int">
+		select count(1) from backend_user where id = #{id} and userPassword = #{password}
+	</select>
+
+	<update id="updatePassword">
+		update backend_user set userPassword = #{newUserPassword} where id = #{id}
+	</update>
+
+	<update id="doUpdateUser">
+		update backend_user set userCode = #{userCode},userName = #{userName},modifyBy=1, modifyDate=now() where id = #{id}
+	</update>
+
+	<select id="selectById" parameterType="int" resultType="BackendUser">
+		select * from backend_user where id =#{id}
+	</select>
 </mapper>

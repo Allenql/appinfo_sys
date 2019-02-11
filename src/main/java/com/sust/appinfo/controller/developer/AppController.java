@@ -378,7 +378,7 @@ public class AppController {
         return "redirect:/dev/flatform/app/appversionadd?id=" + appVersion.getAppId();
     }
 
-    @RequestMapping(value = "/{appid}/sale", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{appid}/sale.json", method = RequestMethod.PUT)
     @ResponseBody
     public Object sale(@PathVariable String appid, HttpSession session) {
         HashMap<String, Object> resultMap = new HashMap<String, Object>();

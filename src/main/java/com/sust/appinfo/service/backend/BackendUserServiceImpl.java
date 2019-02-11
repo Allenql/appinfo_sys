@@ -15,7 +15,6 @@ public class BackendUserServiceImpl implements BackendUserService {
 	
 	@Override
 	public BackendUser login(String userCode, String userPassword) throws Exception {
-		// TODO Auto-generated method stub
 		BackendUser user = null;
 		user = mapper.getLoginUser(userCode);
 		//匹配密码
@@ -24,6 +23,37 @@ public class BackendUserServiceImpl implements BackendUserService {
 				user = null;
 		}
 		return user;
+	}
+
+	@Override
+	public boolean checkPassword(int id, String password) {
+		int i = mapper.checkPassword(id, password);
+		if(i >= 1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean updatePassword(int id, String newUserPassword) {
+		int i = mapper.updatePassword(id, newUserPassword);
+		if(i >= 1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean doUpdateUser(int id, String userCode, String userName) {
+		if(mapper.doUpdateUser(id,userCode,userName) >= 1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public BackendUser selectById(int id) {
+		return mapper.selectById(id);
 	}
 
 }
