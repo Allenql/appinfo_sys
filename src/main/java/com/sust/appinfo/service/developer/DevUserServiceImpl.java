@@ -25,4 +25,35 @@ public class DevUserServiceImpl implements DevUserService {
 		return user;
 	}
 
+	@Override
+	public boolean checkPassword(int id, String password) {
+		int i = mapper.checkPassword(id, password);
+		if(i >= 1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean updatePassword(int id, String newDevPassword) {
+		int i = mapper.updatePassword(id, newDevPassword);
+		if(i >= 1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean doUpdateDevUser(int id, String devCode, String devName, String devEmail) {
+		if(mapper.doUpdateDevUser(id,devCode,devName,devEmail) >= 1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public DevUser selectById(int id) {
+		return mapper.selectById(id);
+	}
+
 }

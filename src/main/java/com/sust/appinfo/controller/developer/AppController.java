@@ -80,7 +80,6 @@ public class AppController {
             try {
                 currentPageNo = Integer.valueOf(pageIndex);
             } catch (NumberFormatException e) {
-                // TODO: handle exception
                 e.printStackTrace();
             }
         }
@@ -110,7 +109,6 @@ public class AppController {
         try {
             totalCount = appInfoService.getAppInfoCount(querySoftwareName, queryStatus, queryCategoryLevel1, queryCategoryLevel2, queryCategoryLevel3, queryFlatformId, devId);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -132,7 +130,6 @@ public class AppController {
             flatFormList = this.getDataDictionaryList("APP_FLATFORM");
             categoryLevel1List = appCategoryService.getAppCategoryListByParentId(null);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         model.addAttribute("appInfoList", appInfoList);
@@ -164,7 +161,6 @@ public class AppController {
         try {
             dataDictionaryList = dataDictionaryService.getDataDictionaryList(typeCode);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return dataDictionaryList;
@@ -202,7 +198,6 @@ public class AppController {
         try {
             categoryLevelList = appCategoryService.getAppCategoryListByParentId(pid == null ? null : Integer.parseInt(pid));
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return categoryLevelList;
@@ -440,7 +435,6 @@ public class AppController {
             try {
                 appInfo = appInfoService.getAppInfo(null, APKName);
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             if (null != appInfo)
@@ -537,7 +531,6 @@ public class AppController {
             appVersion = appVersionService.getAppVersionById(Integer.parseInt(versionId));
             appVersionList = appVersionService.getAppVersionList(Integer.parseInt(appId));
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         model.addAttribute(appVersion);
@@ -656,7 +649,6 @@ public class AppController {
                         }
                     }
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
@@ -695,7 +687,6 @@ public class AppController {
                 try {
                     attach.transferTo(targetFile);
                 } catch (Exception e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                     return "redirect:/dev/flatform/app/appinfomodify?id=" + appInfo.getId()
                             + "&error=error2";
@@ -716,7 +707,6 @@ public class AppController {
                 return "redirect:/dev/flatform/app/list";
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return "developer/appinfomodify";
@@ -737,10 +727,8 @@ public class AppController {
                 else
                     resultMap.put("delResult", "false");
             } catch (NumberFormatException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

@@ -26,4 +26,13 @@ public interface DevUserMapper {
 	 * @return
 	 */
 	public int addDevUser(DevUser devUser);
+
+
+	public int checkPassword(int id, String password);
+
+	public int updatePassword(@Param("id") int id, @Param("newDevPassword") String newDevPassword);
+
+	public int doUpdateDevUser(@Param("id") int id, @Param("devCode") String devCode, @Param("devName") String devName, @Param("devEmail") String devEmail);
+
+	public DevUser selectById(int id);
 }
