@@ -6,6 +6,7 @@ import com.sust.appinfo.mapper.devuser.DevUserMapper;
 import com.sust.appinfo.pojo.DevUser;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
 
 @Service
@@ -54,6 +55,16 @@ public class DevUserServiceImpl implements DevUserService {
 	@Override
 	public DevUser selectById(int id) {
 		return mapper.selectById(id);
+	}
+
+	@Override
+	public List<DevUser> selectDevUserList() {
+		return mapper.selectDevUserList();
+	}
+
+	@Override
+	public int doUpdateInte(int id, int intelligence) {
+		return mapper.doUpdateInte(id, intelligence);
 	}
 
 }

@@ -14,11 +14,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="checkDevCode" parameterType="string" resultType="int">
-		select count(1) from dev_user where devCode = #{devCode}
+		select count(1) from dev_user where devCode = #{devCode} and intelligence != 3
 	</select>
 
 	<insert id="addDevUser" parameterType="DevUser">
-		insert into dev_user(devCode,devName,devPassword,devEmail,devInfo,creationDate) values(#{devCode},#{devName},#{devPassword},#{devEmail},#{devInfo},now())
+		insert into dev_user(devCode,devName,devPassword,devEmail,devInfo,creationDate,intelligence) values(#{devCode},#{devName},#{devPassword},#{devEmail},#{devInfo},now(),1)
 	</insert>
 
 	<select id="checkPassword" resultType="int">
@@ -36,4 +36,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectById" parameterType="int" resultType="DevUser">
 		select * from dev_user where id =#{id}
 	</select>
+
+	<select id="selectDevUserList" resultType="DevUser">
+		select * from dev_user where intelligence = 1
+	</select>
+
+	<update id="doUpdateInte" parameterType="int">
+		update dev_user set intelligence = #{intelligence} where id = #{id}
+	</update>
 </mapper>

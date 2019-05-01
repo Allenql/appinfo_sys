@@ -73,4 +73,12 @@ public class DevController {
         return "developer/devupdate";
     }
 
+    @RequestMapping("/doupdateinte")
+    public String doUpdateInte(@RequestParam String id, @RequestParam String intelligence){
+        int res = devUserService.doUpdateInte(Integer.parseInt(id), Integer.parseInt(intelligence));
+        if (res >= 1){
+            return "redirect:/user/info/devusercheck";
+        }
+        return "redirect:/user/info/devuserchec";
+    }
 }

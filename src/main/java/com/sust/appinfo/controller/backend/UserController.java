@@ -3,6 +3,7 @@ package com.sust.appinfo.controller.backend;
 import com.sust.appinfo.pojo.BackendUser;
 import com.sust.appinfo.pojo.DevUser;
 import com.sust.appinfo.service.backend.BackendUserService;
+import com.sust.appinfo.service.developer.DevUserService;
 import com.sust.appinfo.tools.Constants;
 import com.sust.appinfo.tools.MD5;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user/info")
@@ -20,6 +23,9 @@ public class UserController {
 
     @Autowired
     private BackendUserService backendUserService;
+    @Autowired
+    private DevUserService devUserService;
+
     @RequestMapping("/show")
     public String showInfo(){
         return "backend/userinfo";
@@ -67,5 +73,17 @@ public class UserController {
             return "backend/userinfo";
         }
         return "backend/userupdate";
+    }
+
+    @RequestMapping("/devusercheck")
+    public String devUserCheck(HttpSession session, HttpServletRequest request){
+        List<DevUser> devUserList = devUserService.selectDevUserList();
+        request.setAttribute("devUserList",devUserList);
+        return "backend/devusercheck";
+    }
+
+    @RequestMapping("/adver")
+    public String showAdver(){
+        return "backend/adver";
     }
 }

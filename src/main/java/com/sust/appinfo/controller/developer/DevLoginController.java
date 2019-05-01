@@ -42,11 +42,19 @@ public class DevLoginController {
 			e.printStackTrace();
 		}
 		if(null != user){//登录成功
-			//放入session
-			session.setAttribute(Constants.DEV_USER_SESSION, user);
-			//页面跳转（main.jsp）
-			return "redirect:/dev/flatform/main";
-		}else{
+			if (user.getIntelligence() == 2){
+				//放入session
+				session.setAttribute(Constants.DEV_USER_SESSION, user);
+				//页面跳转（main.jsp）
+				return "redirect:/dev/flatform/main";
+			}
+			if (user.getIntelligence() == 3) {
+				request.setAttribute("error", "资质审核未通过");
+				return "devlogin";
+			}
+			request.setAttribute("error", "资质审核中...");
+			return "devlogin";
+			}else{
 			//页面跳转（login.jsp）带出提示信息--转发
 			request.setAttribute("error", "用户名或密码不正确");
 			return "devlogin";

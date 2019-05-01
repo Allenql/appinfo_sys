@@ -13,6 +13,7 @@ public class BackendUser {
 	private Integer modifyBy;//更新者
 	private Date modifyDate;//更新时间
 	private String userTypeName;//用户角色类型名称
+	private Integer status;  //用户登录状态
 	
 	public String getUserTypeName() {
 		return userTypeName;
@@ -74,5 +75,13 @@ public class BackendUser {
 	}
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 }

@@ -3,6 +3,8 @@ package com.sust.appinfo.service.developer;
 
 import com.sust.appinfo.pojo.DevUser;
 
+import java.util.List;
+
 public interface DevUserService {
 	/**
 	 * 用户登录
@@ -20,4 +22,6 @@ public interface DevUserService {
 
 	public DevUser selectById(int id);
 
+	public List<DevUser> selectDevUserList();
+	public int doUpdateInte(int id, int intelligence);
 }

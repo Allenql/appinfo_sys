@@ -43,10 +43,17 @@ public class UserLoginController {
 			e.printStackTrace();
 		}
 		if(null != user){//登录成功
-			//放入session
-			session.setAttribute(Constants.USER_SESSION, user);
-			//页面跳转（main.jsp）
-			return "redirect:/manager/backend/main";
+			//判断是否已经登录
+			if (user.getStatus() == 1){
+				//放入session
+				session.setAttribute(Constants.USER_SESSION, user);
+				backendUserService.updateStatus(2,user.getId());
+				//页面跳转（main.jsp）
+				return "redirect:/manager/backend/main";
+			}
+			//页面跳转（login.jsp）带出提示信息--转发
+			request.setAttribute("error", "该用户已登录！");
+			return "backendlogin";
 		}else{
 			//页面跳转（login.jsp）带出提示信息--转发
 			request.setAttribute("error", "用户名或密码不正确");
@@ -64,8 +71,11 @@ public class UserLoginController {
 	
 	@RequestMapping(value="/logout")
 	public String logout(HttpSession session){
+        BackendUser user = (BackendUser) session.getAttribute(Constants.USER_SESSION);
+        backendUserService.updateStatus(1,user.getId());
+//        System.out.println(user.getId());
 		//清除session
-		session.removeAttribute(Constants.USER_SESSION);
+        session.removeAttribute(Constants.USER_SESSION);
 		return "backendlogin";
 	}
 }

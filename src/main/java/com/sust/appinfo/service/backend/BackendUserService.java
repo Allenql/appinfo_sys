@@ -19,5 +19,6 @@ public interface BackendUserService {
 
 	public BackendUser selectById(int id);
 
+	public int updateStatus(int status, int id);
 
 }

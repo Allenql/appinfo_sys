@@ -48,7 +48,7 @@ public class DevRegisterController {
         devUser.setDevPassword(s);
         boolean res = devRegisterService.addDevUser(devUser);
         if(res){ //注册成功
-            ra.addFlashAttribute("msg","注册成功，可以登陆了");
+            ra.addFlashAttribute("msg","注册成功，审核通过之后就可以登陆了");
 //            request.getRequestDispatcher("/dev/login").forward(request,response);
             return "redirect:/dev/login";
         }

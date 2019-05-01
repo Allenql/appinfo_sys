@@ -63,13 +63,13 @@
                   <li><a><i class="fa fa-home"></i> APP管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${pageContext.request.contextPath }/manager/backend/app/list">APP审核</a></li>
-                      <li><a href="javascript:;">广告推广</a></li>
+                      <li><a href="/user/info/adver">广告推广</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/user/info/show">后台用户管理</a></li>
-                      <li><a href="javascript:;">开发者资质审核</a></li>
+                      <li><a href="/user/info/devusercheck">开发者资质审核</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bug"></i> 基础数据维护 <span class="fa fa-chevron-down"></span></a>
@@ -211,24 +211,24 @@
                     document.documentElement.msRequestFullscreen();
                   }
                 }
-                document.getElementById("noFullScreen").onclick=function(){
-                  if(document.exitFullScreen){
-                    document.exitFullscreen()
-                  }
+                // document.getElementById("noFullScreen").onclick=function(){
+                //   if(document.exitFullScreen){
+                //     document.exitFullscreen()
+                //   }
                   //兼容火狐
-                  console.log(document.mozExitFullScreen)
-                  if(document.mozCancelFullScreen){
-                    document.mozCancelFullScreen()
-                  }
-                  //兼容谷歌等
-                  if(document.webkitExitFullscreen){
-                    document.webkitExitFullscreen()
-                  }
-                  //兼容IE
-                  if(document.msExitFullscreen){
-                    document.msExitFullscreen()
-                  }
-                }
+                //   console.log(document.mozExitFullScreen)
+                //   if(document.mozCancelFullScreen){
+                //     document.mozCancelFullScreen()
+                //   }
+                //   //兼容谷歌等
+                //   if(document.webkitExitFullscreen){
+                //     document.webkitExitFullscreen()
+                //   }
+                //   //兼容IE
+                //   if(document.msExitFullscreen){
+                //     document.msExitFullscreen()
+                //   // }
+                // }
               </script>
 
               <script language="javascript">
@@ -285,7 +285,7 @@
                   title.style.color="white";
                   title.style.cursor="pointer";
                   title.innerHTML="解锁";
-                  msgObj.innerHTML="<input type='text' id='lock' placeholder='请输入解锁密码' value=''>";
+                  msgObj.innerHTML="<input type='password' id='lock' placeholder='请输入解锁密码' value=''>";
                   title.onclick=function()
                   {
                     // alert(document.getElementById("lock").value)

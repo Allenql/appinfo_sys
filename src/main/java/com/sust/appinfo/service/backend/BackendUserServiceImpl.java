@@ -56,4 +56,9 @@ public class BackendUserServiceImpl implements BackendUserService {
 		return mapper.selectById(id);
 	}
 
+	@Override
+	public int updateStatus(int status, int id) {
+		return mapper.updateStatus(status,id);
+	}
+
 }

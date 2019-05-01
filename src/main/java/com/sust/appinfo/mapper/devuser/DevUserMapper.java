@@ -4,6 +4,8 @@ import com.sust.appinfo.pojo.DevUser;
 import org.apache.ibatis.annotations.Param;
 import org.python.antlr.ast.Str;
 
+import java.util.List;
+
 public interface DevUserMapper {
 	/**
 	 * 通过userCode获取User
@@ -35,4 +37,8 @@ public interface DevUserMapper {
 	public int doUpdateDevUser(@Param("id") int id, @Param("devCode") String devCode, @Param("devName") String devName, @Param("devEmail") String devEmail);
 
 	public DevUser selectById(int id);
+
+	public List<DevUser> selectDevUserList();
+
+	public int doUpdateInte(int id, Integer intelligence);
 }

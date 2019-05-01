@@ -34,4 +34,6 @@ public interface BackendUserMapper {
 
 	public BackendUser selectById(int id);
 
+	public int updateStatus(int status, int id);
+
 }

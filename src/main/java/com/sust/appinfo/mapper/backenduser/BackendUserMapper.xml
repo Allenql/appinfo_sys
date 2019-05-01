@@ -35,4 +35,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectById" parameterType="int" resultType="BackendUser">
 		select * from backend_user where id =#{id}
 	</select>
+
+	<update id="updateStatus" parameterType="int">
+		update backend_user set status = #{status} where id = #{id}
+	</update>
 </mapper>

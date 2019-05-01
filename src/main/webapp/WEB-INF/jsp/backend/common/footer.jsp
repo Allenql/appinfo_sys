@@ -6,7 +6,7 @@
 <!-- footer content -->
 	<footer>
 	  <div class="pull-right">
-          <p>Copr.2019 All Rights Reserved.</p>
+          <p>&copy;2019 All Rights Reserved.</p>
 	  </div>
 	  <div class="clearfix"></div>
 	</footer>
