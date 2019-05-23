@@ -34,6 +34,8 @@ public interface DevUserMapper {
 
 	public int updatePassword(@Param("id") int id, @Param("newDevPassword") String newDevPassword);
 
+	int resetPassword(@Param("devCode")String code,@Param("devEmail") String email, @Param("devPassword") String pwd);
+
 	public int doUpdateDevUser(@Param("id") int id, @Param("devCode") String devCode, @Param("devName") String devName, @Param("devEmail") String devEmail);
 
 	public DevUser selectById(int id);

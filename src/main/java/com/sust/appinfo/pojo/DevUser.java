@@ -1,7 +1,6 @@
 package com.sust.appinfo.pojo;
 
 import java.util.Date;
-
 public class DevUser {
 	private Integer id;//主键id
 	private String devCode;//开发者帐号(系统登录账号)
@@ -82,5 +81,23 @@ public class DevUser {
 
 	public void setIntelligence(Integer intelligence) {
 		this.intelligence = intelligence;
+	}
+
+
+	@Override
+	public String toString() {
+		return "DevUser{" +
+				"id=" + id +
+				", devCode='" + devCode + '\'' +
+				", devName='" + devName + '\'' +
+				", devPassword='" + devPassword + '\'' +
+				", devEmail='" + devEmail + '\'' +
+				", devInfo='" + devInfo + '\'' +
+				", createdBy=" + createdBy +
+				", creationDate=" + creationDate +
+				", modifyBy=" + modifyBy +
+				", modifyDate=" + modifyDate +
+				", intelligence=" + intelligence +
+				'}';
 	}
 }

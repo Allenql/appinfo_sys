@@ -52,4 +52,5 @@
     <script src="${pageContext.request.contextPath }/statics/js/custom.min.js"></script>
   </body>
 </html>				
-			
+
+

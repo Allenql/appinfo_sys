@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="addBackendUser" parameterType="BackendUser">
-		insert into backend_user(userCode,userName,userPassword,creationDate,userType,createdBy) values(#{userCode},#{userName},#{userPassword},now(),1,1)
+		insert into backend_user(userCode,userName,userPassword,creationDate,userType,createdBy,status) values(#{userCode},#{userName},#{userPassword},now(),1,1,1)
 	</insert>
 
 	<select id="checkPassword" resultType="int">

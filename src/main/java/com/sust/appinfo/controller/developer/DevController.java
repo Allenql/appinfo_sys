@@ -1,5 +1,6 @@
 package com.sust.appinfo.controller.developer;
 
+import com.alibaba.fastjson.JSON;
 import com.sust.appinfo.pojo.DevUser;
 import com.sust.appinfo.service.developer.DevUserService;
 import com.sust.appinfo.tools.Constants;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/dev/info")
@@ -36,6 +39,20 @@ public class DevController {
             return "redirect:/dev/login";
         }
         return "redirect:/dev/info/show";
+    }
+
+    @RequestMapping("/resetpwd")
+    @ResponseBody
+    public String resetPassword(@RequestParam(name = "devCode",required = false)String devCode,@RequestParam(name = "devEmail", required = false) String devEmail, @RequestParam(name = "devPassword", required = false) String devPassword){
+        String pwd = MD5.md5(devPassword);
+        boolean res = devUserService.resetPassword(devCode,devEmail, pwd);
+        Map<String,String> msg = new HashMap<>();
+        if(res){
+            msg.put("res","success");
+            return JSON.toJSONString(msg);
+        }
+        msg.put("res","error");
+        return JSON.toJSONString(msg);
     }
 
     @RequestMapping("/checkpwd")

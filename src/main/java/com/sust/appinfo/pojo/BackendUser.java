@@ -84,4 +84,21 @@ public class BackendUser {
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
+
+	@Override
+	public String toString() {
+		return "BackendUser{" +
+				"id=" + id +
+				", userCode='" + userCode + '\'' +
+				", userName='" + userName + '\'' +
+				", userPassword='" + userPassword + '\'' +
+				", userType=" + userType +
+				", createdBy=" + createdBy +
+				", creationDate=" + creationDate +
+				", modifyBy=" + modifyBy +
+				", modifyDate=" + modifyDate +
+				", userTypeName='" + userTypeName + '\'' +
+				", status=" + status +
+				'}';
+	}
 }

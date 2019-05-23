@@ -29,6 +29,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update dev_user set devPassword = #{newDevPassword} where id = #{id}
 	</update>
 
+	<update id="resetPassword">
+		update dev_user set devPassword = #{devPassword} where devEmail = #{devEmail} and devCode = #{devCode}
+	</update>
+
 	<update id="doUpdateDevUser">
 		update dev_user set devCode = #{devCode},devName = #{devName}, devEmail = #{devEmail},modifyBy=1, modifyDate=now() where id = #{id}
 	</update>

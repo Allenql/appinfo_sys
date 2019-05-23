@@ -45,6 +45,15 @@ public class DevUserServiceImpl implements DevUserService {
 	}
 
 	@Override
+	public boolean resetPassword(String code,String email, String pwd) {
+		int i = mapper.resetPassword(code,email,pwd);
+		if(i >= 1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
 	public boolean doUpdateDevUser(int id, String devCode, String devName, String devEmail) {
 		if(mapper.doUpdateDevUser(id,devCode,devName,devEmail) >= 1){
 			return true;

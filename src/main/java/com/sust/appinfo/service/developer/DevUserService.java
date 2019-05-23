@@ -18,6 +18,8 @@ public interface DevUserService {
 
 	public boolean updatePassword(int id, String newDevPassword);
 
+	public boolean resetPassword(String devCode, String email, String pwd);
+
 	public boolean doUpdateDevUser(int id,String devCode, String devName, String devEmail);
 
 	public DevUser selectById(int id);

@@ -49,7 +49,6 @@ public interface AppService {
 	 * @throws Exception
 	 */
 	public AppInfo getAppInfo(@Param(value = "id") Integer id)throws Exception;
-	
 	/**
 	 * 根据id更新app的satus
 	 * @param status

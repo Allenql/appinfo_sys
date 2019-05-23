@@ -20,11 +20,11 @@
     </properties>
 
     <dependencies>
-        <dependency>
+        <!-- <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-<scope>runtime</scope>
-        </dependency>
+            <scope>runtime</scope>
+        </dependency> -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -129,7 +129,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!--<configuration>-->
-                    <!--<mainClass>AppinfoApplication</mainClass>-->
+                <!--<mainClass>AppinfoApplication</mainClass>-->
                 <!--</configuration>-->
             </plugin>
 
